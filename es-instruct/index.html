@@ -37,6 +37,17 @@
     <section id="comparison">
       <header>
         <h2>Model Comparison</h2>
+        <p class="note">
+          All of these samples are from the MARI evaluation dataset, and were
+          used for the listening test.
+        </p>
+        <p class="note">
+          ES-Base is Epidemic Sound's non-instruction-tuned base model, included
+          as a reference baseline.
+          <a href="https://eth-disco.github.io/sao-instruct/">SAO-Instruct</a>
+          is the state-of-the-art in general short form audio instruction
+          editing.
+        </p>
       </header>
 
       <h3>+ ADD</h3>
@@ -546,10 +557,300 @@
       </article>
     </section>
 
+    <section id="full">
+      <header>
+        <h2>Full Length Demos</h2>
+      </header>
+
+      <h3>+ ADD</h3>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add orchestra acoustic pianos, snares, kick drum</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/1/guitar_string.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/1/guitar_strings_add_orchestra_acoustic_pianos_snares_kick_drum.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add heavy metal distorted electric guitar and drum kit</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/2/keyboard_string.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/2/keyboard_string_add_heavy_metal_distorted_electric_guitar_and_drum_kit.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add pop piano</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="../audio/full/3/bass_guitar.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/3/bass_guitar_add_pop_piano.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add rock drum kit</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/4/guitar_synth.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/4/guitar_synth_add_rock_drum_kit.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add soft and calm drums</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/5/bass_guitar_keyboard_string.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/5/bass_guitar_keyboard_string_add_soft_and_calm_drums.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <h3>- REMOVE</h3>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove bass, piano, synth</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/6/bass_guitar_keyboard_synth.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/6/bass_guitar_keyboard_synth_remove_bass_piano_synth.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove bass, guitar, keyboard</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/7/bass_drum_guitar_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/7/bass_drum_guitar_keyboard_remove_bass_guitar_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove vocals</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/8/guitar_keyboard_vocal.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/8/guitar_keyboard_vocal_remove_vocals.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove drums</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/9/drum_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/9/drum_keyboard_remove_drums.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove keyboards</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/10/bass_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="../audio/full/10/bass_keyboard_remove_keyboards.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+    </section>
+
     <section id="additional">
       <header>
         <h2>Additional Demos</h2>
       </header>
+
+      <h3>+ ADD</h3>
 
       <article>
         <header>
@@ -590,7 +891,7 @@
             <figcaption>Input</figcaption>
             <audio controls>
               <source
-                src="../audio/demos/2/electric_guitar_keyboard.mp3"
+                src="../audio/demos/2/guitar_keyboard.mp3"
                 type="audio/mpeg" />
             </audio>
           </figure>
@@ -598,12 +899,14 @@
             <figcaption>ES-Instruct</figcaption>
             <audio controls>
               <source
-                src="../audio/demos/2/electric_guitar_keyboard_add_drums.mp3"
+                src="../audio/demos/2/guitar_keyboard_add_drums.mp3"
                 type="audio/mpeg" />
             </audio>
           </figure>
         </div>
       </article>
+
+      <h3>- REMOVE</h3>
 
       <article>
         <header>
@@ -646,7 +949,7 @@
             <figcaption>Input</figcaption>
             <audio controls>
               <source
-                src="../audio/demos/4/guitar_piano.mp3"
+                src="../audio/demos/4/guitar_keyboard.mp3"
                 type="audio/mpeg" />
             </audio>
           </figure>
@@ -654,7 +957,7 @@
             <figcaption>ES-Instruct</figcaption>
             <audio controls>
               <source
-                src="../audio/demos/4/guitar_piano_remove_piano.mp3"
+                src="../audio/demos/4/guitar_keyboard_remove_piano.mp3"
                 type="audio/mpeg" />
             </audio>
           </figure>
@@ -673,26 +976,84 @@
           <div>
             <small>Prompt</small>
             <p>Eliminate Electronic Synthesizer lead, Synthesizer lead</p>
-            <p class="note">Both the synth and the piano were removed</p>
+            <p class="note">Both the synth and the piano were removed.</p>
           </div>
         </header>
         <div>
           <figure>
             <figcaption>Input</figcaption>
             <audio controls>
-              <source src="../audio/fails/0011/input.mp3" type="audio/mpeg" />
+              <source
+                src="../audio/fails/1/drum_synth_piano.mp3"
+                type="audio/mpeg" />
             </audio>
           </figure>
-          <figure class="highlight">
+          <figure class="highlight wide">
             <figcaption>ES-Instruct (failed)</figcaption>
             <audio controls>
-              <source src="../audio/fails/0011/0011.mp3" type="audio/mpeg" />
+              <source
+                src="../audio/fails/1/drum_synth_piano_eliminate_synth.mp3"
+                type="audio/mpeg" />
             </audio>
           </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove acoustic guitar, electric guitar</p>
+            <p class="note">
+              Instead of removing the guitars, the piano was removed.
+            </p>
+          </div>
+        </header>
+        <div>
           <figure>
-            <figcaption>Ground Truth</figcaption>
+            <figcaption>Input</figcaption>
             <audio controls>
-              <source src="../audio/fails/0011/target.mp3" type="audio/mpeg" />
+              <source
+                src="../audio/fails/2/guitar_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct (failed)</figcaption>
+            <audio controls>
+              <source
+                src="../audio/fails/2/fail-guitar-extract.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove acoustic guitar</p>
+            <p class="note">Both the guitar and the piano were removed.</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="../audio/fails/3/drum_guitar_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct (failed)</figcaption>
+            <audio controls>
+              <source
+                src="../audio/fails/3/remove_acoustic_guitar-fail.mp3"
+                type="audio/mpeg" />
             </audio>
           </figure>
         </div>
@@ -703,8 +1064,8 @@
       © 2026 ES-Instruct | Demos based on
       <a
         href="https://music.ai/blog/press/introducing-moisesdb-the-ultimate-multitrack-dataset-for-source-separation-beyond-4-stems/">
-        MoisesDB
-      </a>
+        MoisesDB</a
+      >
       and <a href="https://www.epidemicsound.com/">Epidemic Sound</a> songs. WAV
       compressed to MP3 for web demo.
     </footer>

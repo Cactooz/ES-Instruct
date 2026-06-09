@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+Allow: /es-instruct
+
+Sitemap: https://hugobacher.com/es-instruct

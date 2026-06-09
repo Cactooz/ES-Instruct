@@ -1,0 +1,11 @@
+# ES-Instruct
+
+> Instruction-tuned text-to-music editing AI model by Hugo Bachér during 2026 (KTH Royal Institute of Technology, Sweden / Epidemic Sound master's thesis).
+
+ES-Instruct performs targeted ADD or REMOVE edits on music given a natural-language prompt, while preserving unrelated structure. It operates as a latent diffusion model and handles full-length songs up to 3 minutes 10 seconds.
+
+ES-Instruct outperforms all compared models, including the current state-of-the-art SAO-Instruct and the non-instruction-tuned ES-Base baseline by a significant margin, demonstrating that instruction tuning for music editing works for latent diffusion models. Older models such as InstructME, InstructMusicGen, MMEdit, and AUDIT were not included in the comparison as they perform significantly worse with audible artifacts and/or do not have open weights available.
+
+## Pages
+
+- [Demos](https://hugobacher.se/es-instruct): Audio comparisons across ADD and REMOVE editing tasks. Includes samples from the MARI evaluation dataset (used in the listening test), full long-form song samples, and failure cases showing the model's limitations.

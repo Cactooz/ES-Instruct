@@ -2,7 +2,7 @@
   --bg: #0f1117;
   --surface: #242836;
   --border: #2e3347;
-  --accent: #f06216;
+  --accent: #ff6600;
   --text: #e2e8f0;
   --radius: 10px;
 }
@@ -41,6 +41,12 @@ body > header {
   margin: 0 auto;
   padding: 60px 24px 40px;
   text-align: center;
+
+  & .logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
 
   & h1 {
     font-size: clamp(2rem, 5vw, 3rem);

@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES-Instruct Music Editing Demo</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ES-Instruct</h1>
+      <p>
+        Instruction-tuned text-to-music editing model. Given an input audio and
+        a natural-language prompt, ES-Instruct performs targeted <i>ADD</i> or
+        <i>REMOVE</i> edits while preserving unrelated structure.
+      </p>
+      <p class="authors">Hugo Bachér</p>
+      <p class="affiliation">
+        KTH Royal Institute of Technology - Master's Thesis
+      </p>
+      <div class="supervisors">
+        <div>
+          <p>Mauro Luzzatto</p>
+          <p>Epidemic Sound</p>
+        </div>
+        <div>
+          <p>Ana Tanevska</p>
+          <p>KTH Royal Institute of Technology</p>
+        </div>
+      </div>
+      <div class="links">
+        <p href="#" class="btn">Thesis (Coming Soon)</p>
+      </div>
+    </header>
+
+    <section id="comparison">
+      <header>
+        <h2>Model Comparison</h2>
+      </header>
+
+      <h3>+ ADD</h3>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add bossa nova electric bass</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/1/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/1/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/1/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/1/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/1/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>include full acoustic drumkit</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/2/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/2/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/2/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/2/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/2/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>insert clean electric guitar</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/3/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/3/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/3/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/3/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/3/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>layer piano, organ</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/4/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/4/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/4/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/4/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/4/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>Include reggae Saxophone</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/5/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/5/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/5/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/5/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/5/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <h3>- REMOVE</h3>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove bass guitar</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/6/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/6/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/6/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/6/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/6/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>delete tomtom, cymbal, hihat, snare, kick</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/7/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/7/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/7/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/7/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/7/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>mute clean electric guitar, guitars</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/8/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/8/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/8/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/8/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/8/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>minus grand piano, electric piano</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/9/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/9/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/9/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/9/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/9/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>Omit blues Lead male vocal</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/comparison/10/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/10/es-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>ES-Base</figcaption>
+            <audio controls>
+              <source src="audio/comparison/10/es-base.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>SAO-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/comparison/10/sao-instruct.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/comparison/10/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="additional">
+      <header>
+        <h2>Additional Demos</h2>
+      </header>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add drums, piano</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/demos/1/es-bass.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/demos/1/es-bass_add_drums_piano.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>ADD</b>
+          <div>
+            <small>Prompt</small>
+            <p>add drums</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="audio/demos/2/electric_guitar_keyboard.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/demos/2/electric_guitar_keyboard_add_drums.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove drums, vocals</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source
+                src="audio/demos/3/drum_guitar_keyboard_vocal.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/demos/3/drum_guitar_keyboard_vocal_remove_drums_vocals.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>remove piano</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/demos/4/guitar_piano.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight wide">
+            <figcaption>ES-Instruct</figcaption>
+            <audio controls>
+              <source
+                src="audio/demos/4/guitar_piano_remove_piano.mp3"
+                type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="failures">
+      <header>
+        <h2>Failed Generations</h2>
+      </header>
+
+      <article>
+        <header>
+          <b>REMOVE</b>
+          <div>
+            <small>Prompt</small>
+            <p>Eliminate Electronic Synthesizer lead, Synthesizer lead</p>
+            <p class="note">Both the synth and the piano were removed</p>
+          </div>
+        </header>
+        <div>
+          <figure>
+            <figcaption>Input</figcaption>
+            <audio controls>
+              <source src="audio/fails/0011/input.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure class="highlight">
+            <figcaption>ES-Instruct (failed)</figcaption>
+            <audio controls>
+              <source src="audio/fails/0011/0011.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+          <figure>
+            <figcaption>Ground Truth</figcaption>
+            <audio controls>
+              <source src="audio/fails/0011/target.mp3" type="audio/mpeg" />
+            </audio>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © 2026 ES-Instruct | Demos based on
+      <a
+        href="https://music.ai/blog/press/introducing-moisesdb-the-ultimate-multitrack-dataset-for-source-separation-beyond-4-stems/">
+        MoisesDB
+      </a>
+      and <a href="https://www.epidemicsound.com/">Epidemic Sound</a> songs. WAV
+      compressed to MP3 for web demo.
+    </footer>
+  </body>
+</html>
